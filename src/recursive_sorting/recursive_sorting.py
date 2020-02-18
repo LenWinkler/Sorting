@@ -2,14 +2,20 @@
 def merge( arrA, arrB ):
     elements = len( arrA ) + len( arrB )
     merged_arr = [0] * elements
-    # TO-DO
+    
+    # check if either arr is empty
+    # if one arr is empty, append els from remaining arr to end of merged_arr
+    # otherwise, compare first element of each arr
+    # insert larger element into merged_arr
+    # remove element from original arr
+    # continue until both original arrs are empty
     
     return merged_arr
 
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
-    # TO-DO
+    
     if len(arr) > 1:
         # divide into left and right
         left = merge_sort(arr[0 : len(arr) / 2])
