@@ -24,31 +24,20 @@ def selection_sort( arr ):
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort( arr ):
     
-    proceed = True # flag for while loop
+    proceed = True
 
-    while proceed == True: # keep looping while proceed is true
-        
-        print('looping', arr)
-        for i in range(0, len(arr)):
+    while proceed: 
 
-            swap_occurred = False # var to send to while loop flag
+        swap_occurred = False
+
+        for i in range(0, len(arr) - 1):
             
-            
-            if i < len(arr) - 1 and arr[i] > arr[i + 1]:
+            if arr[i] > arr[i + 1]:
                 arr[i], arr[i + 1] = arr[i + 1], arr[i]
-                print('swap before', swap_occurred)
                 swap_occurred = True
-                print('swap after', swap_occurred)
-                continue
-
-            elif i < len(arr) - 1 and arr[i] < arr[i + 1]:
-                print('continue')
-                continue
             
-            elif i == len(arr) and swap_occurred == False:
-                print('len', len(arr) - 1)
-                print('swap in elif', swap_occurred)
-                proceed = False
+        if swap_occurred == False:     
+            proceed = False
 
     return arr
 
