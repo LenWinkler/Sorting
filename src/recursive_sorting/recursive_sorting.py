@@ -3,11 +3,31 @@ def merge( arrA, arrB ):
     elements = len( arrA ) + len( arrB )
     merged_arr = [0] * elements
     
+    for i in range(0, elements):
+
     # check if either arr is empty
-    # if one arr is empty, append els from remaining arr to end of merged_arr
+    # if one arr is empty, add first element from non empty arr to merged_arr
+        
+        if len(arrA) == 0:
+            merged_arr[i] = arrB[0]
+            arrB = arrB[1:]
+        elif len(arrB) == 0:
+            merged_arr[i] = arrA[0]
+            arrA = arrA[1:]
+            
     # otherwise, compare first element of each arr
-    # insert larger element into merged_arr
-    # remove element from original arr
+        elif arrA[0] < arrB[0]:
+            # insert larger element into merged_arr
+            merged_arr[i] = arrA[0]
+             # remove element from original arr
+            arrA.pop(0)
+        else:
+            # insert larger element into merged_arr
+            merged_arr[i] = arrB[0]
+             # remove element from original arr
+            arrB.pop(0)
+    
+   
     # continue until both original arrs are empty
     
     return merged_arr
@@ -18,8 +38,9 @@ def merge_sort( arr ):
     
     if len(arr) > 1:
         # divide into left and right
-        left = merge_sort(arr[0 : len(arr) / 2])
-        right = merge_sort(arr[len(arr) / 2 : ])
+        left = merge_sort( arr[ 0 : len(arr) // 2 ] )
+        right = merge_sort( arr[ len(arr) // 2 : ] )
+        # merge sorted lists
         arr = merge(left, right)
 
     return arr
